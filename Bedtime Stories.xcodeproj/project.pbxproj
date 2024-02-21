@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECFDFFD72B8279F50064CAF3 /* Bedtime_StoriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFD62B8279F50064CAF3 /* Bedtime_StoriesApp.swift */; };
+		ECFDFFD92B8279F50064CAF3 /* FirstPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFD82B8279F50064CAF3 /* FirstPageView.swift */; };
+		ECFDFFDB2B8279F60064CAF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECFDFFDA2B8279F60064CAF3 /* Assets.xcassets */; };
+		ECFDFFDE2B8279F60064CAF3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECFDFFDD2B8279F60064CAF3 /* Preview Assets.xcassets */; };
+		ECFDFFE52B8281A40064CAF3 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFE42B8281A40064CAF3 /* PromptView.swift */; };
+		ECFDFFE72B82883B0064CAF3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFE62B82883B0064CAF3 /* API.swift */; };
+		ECFDFFEB2B8288F60064CAF3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFEA2B8288F60064CAF3 /* Service.swift */; };
+		ECFDFFEE2B82890C0064CAF3 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = ECFDFFED2B82890C0064CAF3 /* GoogleGenerativeAI */; };
+		ECFDFFF12B8342BA0064CAF3 /* Tales.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFF02B8342BA0064CAF3 /* Tales.swift */; };
+		ECFDFFF52B835F370064CAF3 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */; };
+		ECFDFFF72B838A030064CAF3 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFF62B838A030064CAF3 /* StoryView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ECFDFFD32B8279F50064CAF3 /* Bedtime Stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bedtime Stories.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECFDFFD62B8279F50064CAF3 /* Bedtime_StoriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedtime_StoriesApp.swift; sourceTree = "<group>"; };
+		ECFDFFD82B8279F50064CAF3 /* FirstPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageView.swift; sourceTree = "<group>"; };
+		ECFDFFDA2B8279F60064CAF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECFDFFDD2B8279F60064CAF3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ECFDFFE42B8281A40064CAF3 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
+		ECFDFFE62B82883B0064CAF3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		ECFDFFEA2B8288F60064CAF3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		ECFDFFF02B8342BA0064CAF3 /* Tales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tales.swift; sourceTree = "<group>"; };
+		ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
+		ECFDFFF62B838A030064CAF3 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECFDFFD02B8279F50064CAF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECFDFFEE2B82890C0064CAF3 /* GoogleGenerativeAI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECFDFFCA2B8279F50064CAF3 = {
+			isa = PBXGroup;
+			children = (
+				ECFDFFD52B8279F50064CAF3 /* Bedtime Stories */,
+				ECFDFFD42B8279F50064CAF3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECFDFFD42B8279F50064CAF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECFDFFD32B8279F50064CAF3 /* Bedtime Stories.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECFDFFD52B8279F50064CAF3 /* Bedtime Stories */ = {
+			isa = PBXGroup;
+			children = (
+				ECFDFFD62B8279F50064CAF3 /* Bedtime_StoriesApp.swift */,
+				ECFDFFD82B8279F50064CAF3 /* FirstPageView.swift */,
+				ECFDFFE42B8281A40064CAF3 /* PromptView.swift */,
+				ECFDFFF62B838A030064CAF3 /* StoryView.swift */,
+				ECFDFFEA2B8288F60064CAF3 /* Service.swift */,
+				ECFDFFF02B8342BA0064CAF3 /* Tales.swift */,
+				ECFDFFE62B82883B0064CAF3 /* API.swift */,
+				ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */,
+				ECFDFFEF2B8342700064CAF3 /* Config */,
+				ECFDFFDA2B8279F60064CAF3 /* Assets.xcassets */,
+				ECFDFFDC2B8279F60064CAF3 /* Preview Content */,
+			);
+			path = "Bedtime Stories";
+			sourceTree = "<group>";
+		};
+		ECFDFFDC2B8279F60064CAF3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				ECFDFFDD2B8279F60064CAF3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ECFDFFEF2B8342700064CAF3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECFDFFD22B8279F50064CAF3 /* Bedtime Stories */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECFDFFE12B8279F60064CAF3 /* Build configuration list for PBXNativeTarget "Bedtime Stories" */;
+			buildPhases = (
+				ECFDFFCF2B8279F50064CAF3 /* Sources */,
+				ECFDFFD02B8279F50064CAF3 /* Frameworks */,
+				ECFDFFD12B8279F50064CAF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bedtime Stories";
+			packageProductDependencies = (
+				ECFDFFED2B82890C0064CAF3 /* GoogleGenerativeAI */,
+			);
+			productName = "Bedtime Stories";
+			productReference = ECFDFFD32B8279F50064CAF3 /* Bedtime Stories.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECFDFFCB2B8279F50064CAF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					ECFDFFD22B8279F50064CAF3 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = ECFDFFCE2B8279F50064CAF3 /* Build configuration list for PBXProject "Bedtime Stories" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECFDFFCA2B8279F50064CAF3;
+			packageReferences = (
+				ECFDFFEC2B82890C0064CAF3 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+			);
+			productRefGroup = ECFDFFD42B8279F50064CAF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECFDFFD22B8279F50064CAF3 /* Bedtime Stories */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECFDFFD12B8279F50064CAF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECFDFFDE2B8279F60064CAF3 /* Preview Assets.xcassets in Resources */,
+				ECFDFFDB2B8279F60064CAF3 /* Assets.xcassets in Resources */,
+				ECFDFFF52B835F370064CAF3 /* GenerativeAI-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECFDFFCF2B8279F50064CAF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECFDFFD92B8279F50064CAF3 /* FirstPageView.swift in Sources */,
+				ECFDFFE52B8281A40064CAF3 /* PromptView.swift in Sources */,
+				ECFDFFEB2B8288F60064CAF3 /* Service.swift in Sources */,
+				ECFDFFF72B838A030064CAF3 /* StoryView.swift in Sources */,
+				ECFDFFF12B8342BA0064CAF3 /* Tales.swift in Sources */,
+				ECFDFFE72B82883B0064CAF3 /* API.swift in Sources */,
+				ECFDFFD72B8279F50064CAF3 /* Bedtime_StoriesApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ECFDFFDF2B8279F60064CAF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECFDFFE02B8279F60064CAF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECFDFFE22B8279F60064CAF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Bedtime Stories/Preview Content\"";
+				DEVELOPMENT_TEAM = S7VDAK3AXN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.enestalhaucar.Bedtime-Stories";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECFDFFE32B8279F60064CAF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Bedtime Stories/Preview Content\"";
+				DEVELOPMENT_TEAM = S7VDAK3AXN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.enestalhaucar.Bedtime-Stories";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECFDFFCE2B8279F50064CAF3 /* Build configuration list for PBXProject "Bedtime Stories" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECFDFFDF2B8279F60064CAF3 /* Debug */,
+				ECFDFFE02B8279F60064CAF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECFDFFE12B8279F60064CAF3 /* Build configuration list for PBXNativeTarget "Bedtime Stories" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECFDFFE22B8279F60064CAF3 /* Debug */,
+				ECFDFFE32B8279F60064CAF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECFDFFEC2B82890C0064CAF3 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECFDFFED2B82890C0064CAF3 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECFDFFEC2B82890C0064CAF3 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = ECFDFFCB2B8279F50064CAF3 /* Project object */;
+}
