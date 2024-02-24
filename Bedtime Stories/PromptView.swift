@@ -11,7 +11,7 @@ import GoogleGenerativeAI
 
 
 struct PromptView: View {
-    
+    @StateObject var vm = ViewModel()
     @State private var service = Service()
     @State private var name = ""
     @State private var language = ""
@@ -56,6 +56,7 @@ struct PromptView: View {
                             .background(Color.yellow)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .padding()
+                            
                         
                         
                     }.padding(.top,50)
@@ -173,24 +174,34 @@ struct PromptView: View {
                                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                                         .ignoresSafeArea()
                                     
-                                    ZStack {
-                                        Rectangle()
-                                            .background(.ultraThinMaterial)
-                                            .frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 7)
-                                            .clipShape(RoundedRectangle(cornerRadius: 25))
-                                        ScrollView {
-                                            Text(service.AIResponse)
-                                                .font(.title3)
-                                                .multilineTextAlignment(.center)
-                                                .foregroundStyle(.white)
+                                    VStack {
+                                        ZStack {
+                                            Rectangle()
+                                                .background(.ultraThinMaterial)
+                                                .frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 7)
+                                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                            ScrollView {
+                                                Text(service.AIResponse)
+                                                    .font(.title3)
+                                                    .multilineTextAlignment(.center)
+                                                    .foregroundStyle(.white)
+                                            }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 5)
+                                         }
+                                        
+                                        Button(action: {
+                                            vm.addTales(title: "Talha Ucar", tale: service.AIResponse, date: Date())
+                                        }, label: {
+                                            HStack {
+                                                Text("Save")
+                                                Image(systemName: "square.and.arrow.down.on.square")
+                                            }.font(.headline)
+                                                .frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8 , height: 55)
+                                                .background(.ultraThinMaterial)
+                                                .foregroundStyle(Color.white)
+                                                .cornerRadius(25)
+                                                .padding()
                                             
-                                            
-                                            
-                                        }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 5)
-                                        
-                                        
-                                        
-                                        
+                                        })
                                     }
                                 }.ignoresSafeArea()
                             })

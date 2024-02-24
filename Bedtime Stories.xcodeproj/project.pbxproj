@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECFD00002B8764F40064CAF3 /* SavedTalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFFF2B8764F40064CAF3 /* SavedTalesView.swift */; };
 		ECFDFFD72B8279F50064CAF3 /* Bedtime_StoriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFD62B8279F50064CAF3 /* Bedtime_StoriesApp.swift */; };
 		ECFDFFD92B8279F50064CAF3 /* FirstPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFD82B8279F50064CAF3 /* FirstPageView.swift */; };
 		ECFDFFDB2B8279F60064CAF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECFDFFDA2B8279F60064CAF3 /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 		ECFDFFF12B8342BA0064CAF3 /* Tales.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFF02B8342BA0064CAF3 /* Tales.swift */; };
 		ECFDFFF52B835F370064CAF3 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */; };
 		ECFDFFF72B838A030064CAF3 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFF62B838A030064CAF3 /* StoryView.swift */; };
+		ECFDFFF92B874D130064CAF3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFF82B874D130064CAF3 /* ViewModel.swift */; };
+		ECFDFFFC2B874DC10064CAF3 /* TalesContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECFDFFFA2B874DC10064CAF3 /* TalesContainer.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		ECFDFFF02B8342BA0064CAF3 /* Tales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tales.swift; sourceTree = "<group>"; };
 		ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		ECFDFFF62B838A030064CAF3 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		ECFDFFF82B874D130064CAF3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		ECFDFFFB2B874DC10064CAF3 /* TalesContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TalesContainer.xcdatamodel; sourceTree = "<group>"; };
+		ECFDFFFF2B8764F40064CAF3 /* SavedTalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTalesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +77,10 @@
 				ECFDFFF62B838A030064CAF3 /* StoryView.swift */,
 				ECFDFFEA2B8288F60064CAF3 /* Service.swift */,
 				ECFDFFF02B8342BA0064CAF3 /* Tales.swift */,
+				ECFDFFFF2B8764F40064CAF3 /* SavedTalesView.swift */,
 				ECFDFFE62B82883B0064CAF3 /* API.swift */,
+				ECFDFFF82B874D130064CAF3 /* ViewModel.swift */,
+				ECFDFFFA2B874DC10064CAF3 /* TalesContainer.xcdatamodeld */,
 				ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */,
 				ECFDFFEF2B8342700064CAF3 /* Config */,
 				ECFDFFDA2B8279F60064CAF3 /* Assets.xcassets */,
@@ -172,12 +181,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECFD00002B8764F40064CAF3 /* SavedTalesView.swift in Sources */,
 				ECFDFFD92B8279F50064CAF3 /* FirstPageView.swift in Sources */,
 				ECFDFFE52B8281A40064CAF3 /* PromptView.swift in Sources */,
 				ECFDFFEB2B8288F60064CAF3 /* Service.swift in Sources */,
+				ECFDFFFC2B874DC10064CAF3 /* TalesContainer.xcdatamodeld in Sources */,
 				ECFDFFF72B838A030064CAF3 /* StoryView.swift in Sources */,
 				ECFDFFF12B8342BA0064CAF3 /* Tales.swift in Sources */,
 				ECFDFFE72B82883B0064CAF3 /* API.swift in Sources */,
+				ECFDFFF92B874D130064CAF3 /* ViewModel.swift in Sources */,
 				ECFDFFD72B8279F50064CAF3 /* Bedtime_StoriesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +415,19 @@
 			productName = GoogleGenerativeAI;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		ECFDFFFA2B874DC10064CAF3 /* TalesContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ECFDFFFB2B874DC10064CAF3 /* TalesContainer.xcdatamodel */,
+			);
+			currentVersion = ECFDFFFB2B874DC10064CAF3 /* TalesContainer.xcdatamodel */;
+			path = TalesContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ECFDFFCB2B8279F50064CAF3 /* Project object */;
 }
