@@ -20,17 +20,19 @@ enum Role {
     case model
 }
 
-enum endOfStory:  String, CaseIterable, Identifiable {
-    case happy
-    case sad
+enum EndOfStory:  String, CaseIterable, Identifiable, Hashable{
+    case happy = "Happy"
+    case sad = "Sad"
     var id: String { self.rawValue }
 }
 
-enum storyType {
-    case funny
-    case adventurous
-    case fantasy
-    case realistic
+enum StoryType: String, CaseIterable, Identifiable, Hashable{
+    case funny = "Funny"
+    case adventurous = "Adventurous"
+    case fantasy = "Fantasy"
+    case realistic = "Realistic"
+    var id: String { self.rawValue }
+    
 }
 
 struct Tales : Identifiable, Equatable {
@@ -40,8 +42,8 @@ struct Tales : Identifiable, Equatable {
     var storyLanguage : String
     var age : Int
     var gender : Gender
-    var endOfStory : endOfStory
-    var storyType : storyType
+    var endOfStory : EndOfStory
+    var storyType : StoryType
     var additionalCharachters : [String]
     var place : String
     var XMinuteReading : Int

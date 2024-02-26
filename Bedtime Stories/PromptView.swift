@@ -17,8 +17,8 @@ struct PromptView: View {
     @State private var language = ""
     @State private var value : Double = 0.5
     @State private var selectedGender : Gender = .female
-    @State private var endOfStory = ""
-    @State private var storyType = ""
+    @State private var selectedEndOfStory : EndOfStory = .happy
+    @State private var selectedStoryType : StoryType = .funny
     @State private var place = ""
     @State private var XMinuteReading = ""
     @State var showStorySheet : Bool = false
@@ -66,7 +66,7 @@ struct PromptView: View {
                         Text("Child's Age: \(Int(value * 12))")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
-                            .padding(.horizontal)
+                            
                             .foregroundColor(.yellow)
                             .fontWeight(.heavy)
                         
@@ -100,6 +100,12 @@ struct PromptView: View {
                     .padding(.bottom, 20)
                     
                     // MARK: GENDER PICKER
+                    // Gender
+                    Text("Gender")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundStyle(.yellow)
+                        .padding(.leading)
+                        .fontWeight(.heavy)
                     Picker(selection: $selectedGender) {
                         ForEach(Gender.allCases) { gender in
                             Text(gender.rawValue)
@@ -114,22 +120,62 @@ struct PromptView: View {
                         .padding(.horizontal)
                         .padding(.bottom,20)
                     
+                    // EndOfStory
+                    Text("How will the story end?")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundStyle(.yellow)
+                        .padding(.leading)
+                        .fontWeight(.heavy)
+                    Picker(selection: $selectedEndOfStory) {
+                        ForEach(EndOfStory.allCases) { endOfStory in
+                            Text(endOfStory.rawValue)
+                                .tag(endOfStory)
+                        }
+                        
+                        
+                    } label: {
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                        .background(Color.yellow)
+                        .padding(.horizontal)
+                        .padding(.bottom,20)
+                    
+                    // Story Type
+                    Text("What type of story should it be ?")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundStyle(.yellow)
+                        .padding(.leading)
+                        .fontWeight(.heavy)
+                    Picker(selection: $selectedStoryType) {
+                        ForEach(StoryType.allCases) { storyType in
+                            Text(storyType.rawValue)
+                                .tag(storyType)
+                        }
+                        
+                        
+                    } label: {
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                        .background(Color.yellow)
+                        .padding(.horizontal)
+                        .padding(.bottom,20)
+                    
                     
                     
                     // STORYEND
-                    TextField("", text: $endOfStory, prompt: Text("How will the story end?").foregroundStyle(.black.opacity(0.6)))
-                        .padding()
-                        .foregroundStyle(Color.black)
-                        .background(Color.yellow)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding()
+//                    TextField("", text: $endOfStory, prompt: Text("How will the story end?").foregroundStyle(.black.opacity(0.6)))
+//                        .padding()
+//                        .foregroundStyle(Color.black)
+//                        .background(Color.yellow)
+//                        .clipShape(RoundedRectangle(cornerRadius: 10))
+//                        .padding()
                     // STORYTYPE
-                    TextField("", text: $storyType, prompt: Text("What type of story should it be ?").foregroundStyle(.black.opacity(0.6)))
-                        .padding()
-                        .foregroundStyle(Color.black)
-                        .background(Color.yellow)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding()
+//                    TextField("", text: $storyType, prompt: Text("What type of story should it be ?").foregroundStyle(.black.opacity(0.6)))
+//                        .padding()
+//                        .foregroundStyle(Color.black)
+//                        .background(Color.yellow)
+//                        .clipShape(RoundedRectangle(cornerRadius: 10))
+//                        .padding()
                     // STORYPLACE
                     TextField("", text: $place, prompt: Text("Where should the story take place?").foregroundStyle(.black.opacity(0.6)))
                         .padding()
@@ -173,7 +219,7 @@ struct PromptView: View {
                         ProgressView()
                             .tint(.white)
                     }
-                }
+                }.padding(.bottom, 25)
                 
                 
                 
@@ -191,15 +237,15 @@ struct PromptView: View {
     
     private func sendMessage() {
         Task {
-            textInput = "Hello, I want you to create a story to help children fall asleep. The age of the child for whom you will create a story is \(value). The main character of the story should be the same age as the child. The gender of the child for whom you will create a story is a \(selectedGender). Choose the main character in the story according to the gender of the child. The name of the main character of the story will be the same as the child's name. The child's name is \(name). The story will have a \(endOfStory) ending. Let the story be \(XMinuteReading) minutes long, suitable for reading. The style of the story will be \(storyType). The language of the story will be \(language)."
+            textInput = "Hello, I want you to create a story to help children fall asleep. The age of the child for whom you will create a story is \(value). The main character of the story should be the same age as the child. The gender of the child for whom you will create a story is a \(selectedGender). Choose the main character in the story according to the gender of the child. The name of the main character of the story will be the same as the child's name. The child's name is \(name). The story will have a \(selectedEndOfStory) ending. Let the story be \(XMinuteReading) minutes long, suitable for reading. The style of the story will be \(selectedStoryType). The language of the story will be \(language)."
             service.fetchResponse(input: textInput)
             textInput = ""
             name = ""
             language = ""
             value = 0.5
             selectedGender = .female
-            endOfStory = ""
-            storyType = ""
+            selectedEndOfStory = .happy
+            selectedStoryType = .funny
             place = ""
             XMinuteReading = ""
             
@@ -285,5 +331,5 @@ struct StoryViewPage : View {
 }
 
 #Preview {
-    StoryViewPage()
+    PromptView()
 }

@@ -82,7 +82,6 @@
 				ECFDFFF82B874D130064CAF3 /* ViewModel.swift */,
 				ECFDFFFA2B874DC10064CAF3 /* TalesContainer.xcdatamodeld */,
 				ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */,
-				ECFDFFEF2B8342700064CAF3 /* Config */,
 				ECFDFFDA2B8279F60064CAF3 /* Assets.xcassets */,
 				ECFDFFDC2B8279F60064CAF3 /* Preview Content */,
 			);
@@ -95,13 +94,6 @@
 				ECFDFFDD2B8279F60064CAF3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		ECFDFFEF2B8342700064CAF3 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
