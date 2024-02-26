@@ -9,19 +9,49 @@ import SwiftUI
 
 struct SavedTalesView: View {
     @StateObject var vm = ViewModel()
+    var dateFormatter : DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm / dd MMMM"
+        return formatter
+    }
+    @Environment(\.presentationMode) var presentionMode
     var body: some View {
-        ZStack {
-            Image("wallpaper")
-                .resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width)
-                .ignoresSafeArea()
-            
-            VStack {
-                ForEach(vm.savedTales) { tale in
-                    Text("Enes").frame(height: 55).frame(maxWidth: .infinity)
-                        
-                        
+        NavigationStack {
+            ZStack {
+                Image("wallpaper")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width)
+                    .ignoresSafeArea()
+                
+                VStack {
+                      ScrollView {
+                        ForEach(vm.savedTales) { tale in
+                            HStack {
+                                Text("\(tale.title!)")
+                                Spacer()
+                                Text(dateFormatter.string(from: tale.date!))
+                                    
+                            }.frame(height: 55)
+                                .padding(.horizontal)
+                                .background(Color.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)       
+                        }
+                    }
+                    NavigationLink(destination: PromptView()) {
+                        HStack {
+                            Text("New Tale")
+                            Image(systemName: "plus.circle")
+                        }.font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 55)
+                            .background(.ultraThinMaterial)
+                            .foregroundStyle(Color.white)
+                            .cornerRadius(25)
+                            .padding()
+                    }
                 }
             }
         }

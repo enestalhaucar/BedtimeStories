@@ -37,7 +37,7 @@ struct FirstPageView: View {
                         .foregroundStyle(Color.white)
                         .padding(.bottom,20)
                     
-                    NavigationLink(destination: PromptView()) {
+                    NavigationLink(destination: SavedTalesView()) {
                         Text("Önceki masallara git ->")
                             .foregroundStyle(Color.white)
                     }
