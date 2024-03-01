@@ -45,6 +45,20 @@ class ViewModel : ObservableObject {
         
         saveData()
     }
+    
+    func deleteTale(_ tale: TalesEntity) {
+        if let index = savedTales.firstIndex(of: tale) {
+            container.viewContext.delete(tale)
+            savedTales.remove(at: index)
+            saveData()
+        }
+    }
+    func deleteTale2(tale: TalesEntity) {
+        guard let index = savedTales.firstIndex(of: tale) else { return }
+        container.viewContext.delete(tale)
+        savedTales.remove(at: index)
+        saveData()
+    }
     // MARK: SAVING DATA
     func saveData() {
         do {

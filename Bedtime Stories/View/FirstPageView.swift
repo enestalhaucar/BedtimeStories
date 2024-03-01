@@ -11,19 +11,14 @@ struct FirstPageView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Image("wallpaper")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width )
+                BackgroundLayer()
                 VStack {
-                   
                     Spacer()
                     Spacer()
                     Spacer()
                     Text("Serenade Tales")
                         .foregroundStyle(Color.white)
                         .font(.title)
-                        
                     Spacer()
                     Text("Çocuklarınızı huzurlu bir uykuya hazırlayın. Serenade Tales, her gece yeni bir masal sunar. Rüyalarınızın anahtarı burada!")
                         .frame(width: 320)
@@ -42,9 +37,6 @@ struct FirstPageView: View {
                             .foregroundStyle(Color.white)
                     }
                     Spacer()
-                    
-                    
-                    
                 }
                 .padding()
             }.ignoresSafeArea(.all)
@@ -54,4 +46,14 @@ struct FirstPageView: View {
 
 #Preview {
     FirstPageView()
+}
+
+struct BackgroundLayer: View {
+    var body: some View {
+        Image("wallpaper")
+            .resizable()
+            .scaledToFill()
+            .frame(width: UIScreen.main.bounds.width )
+            .ignoresSafeArea(.all)
+    }
 }

@@ -52,6 +52,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC1A19882B91E9450077CB94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECFDFFFF2B8764F40064CAF3 /* SavedTalesView.swift */,
+				ECFDFFD82B8279F50064CAF3 /* FirstPageView.swift */,
+				ECFDFFE42B8281A40064CAF3 /* PromptView.swift */,
+				ECFDFFF62B838A030064CAF3 /* StoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC1A19892B91E9560077CB94 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECFDFFF82B874D130064CAF3 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC1A198B2B91E9710077CB94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ECFDFFCA2B8279F50064CAF3 = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +98,12 @@
 			isa = PBXGroup;
 			children = (
 				ECFDFFD62B8279F50064CAF3 /* Bedtime_StoriesApp.swift */,
-				ECFDFFD82B8279F50064CAF3 /* FirstPageView.swift */,
-				ECFDFFE42B8281A40064CAF3 /* PromptView.swift */,
-				ECFDFFF62B838A030064CAF3 /* StoryView.swift */,
+				EC1A19882B91E9450077CB94 /* View */,
+				EC1A19892B91E9560077CB94 /* ViewModel */,
+				EC1A198B2B91E9710077CB94 /* Model */,
+				ECFDFFE62B82883B0064CAF3 /* API.swift */,
 				ECFDFFEA2B8288F60064CAF3 /* Service.swift */,
 				ECFDFFF02B8342BA0064CAF3 /* Tales.swift */,
-				ECFDFFFF2B8764F40064CAF3 /* SavedTalesView.swift */,
-				ECFDFFE62B82883B0064CAF3 /* API.swift */,
-				ECFDFFF82B874D130064CAF3 /* ViewModel.swift */,
 				ECFDFFFA2B874DC10064CAF3 /* TalesContainer.xcdatamodeld */,
 				ECFDFFF42B835F370064CAF3 /* GenerativeAI-Info.plist */,
 				ECFDFFDA2B8279F60064CAF3 /* Assets.xcassets */,

@@ -35,7 +35,7 @@ enum StoryType: String, CaseIterable, Identifiable, Hashable{
     
 }
 
-struct Tales : Identifiable, Equatable {
+struct Tales : Identifiable, Equatable, Hashable {
     let id = UUID().uuidString
     var role : Role
     var name : String

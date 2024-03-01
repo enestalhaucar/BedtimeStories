@@ -22,8 +22,8 @@ struct PromptView: View {
     @State private var place = ""
     @State private var XMinuteReading = ""
     @State var showStorySheet : Bool = false
-    
-    
+    @Environment(\.presentationMode) var presentionMode
+    @State private var showSavedStory : Bool = false
     @State var textInput = ""
     
     
@@ -31,44 +31,19 @@ struct PromptView: View {
     var body: some View {
         
         ZStack {
-            Image("wallpaper")
-                .resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width)
-                .ignoresSafeArea()
-            
+            BackgroundLayer()
             VStack {
-                
                 ScrollView {
                     // MARK: NAME AND LANGUAGE TF
                     HStack {
                         // Name TextField
-                        TextField("", text: $name, prompt: Text("Name").foregroundStyle(.black.opacity(0.6)))
-                            .padding()
-                            .foregroundStyle(Color.black)
-                            .background(Color.yellow)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(.horizontal)
+                        textFieldForPrompt(text: name)
                         // Language TextField
-                        TextField("", text: $language, prompt: Text("Language").foregroundStyle(.black.opacity(0.6)))
-                            .padding()
-                            .foregroundStyle(Color.black)
-                            .background(Color.yellow)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding()
-                            
-                        
-                        
+                        textFieldForPrompt(text: language)
                     }.padding(.top,50)
-                    
                     // MARK: CHILDREN AGE SLIDER
                     VStack {
-                        Text("Child's Age: \(Int(value * 12))")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
-                            
-                            .foregroundColor(.yellow)
-                            .fontWeight(.heavy)
+                        ChildrenAgeSlider(value: value)
                         
                         // Slider
                         GeometryReader { geometry in
@@ -99,7 +74,7 @@ struct PromptView: View {
                     }
                     .padding(.bottom, 20)
                     
-                    // MARK: GENDER PICKER
+                    // MARK: PICKER PICKER
                     // Gender
                     Text("Gender")
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -160,22 +135,6 @@ struct PromptView: View {
                         .padding(.horizontal)
                         .padding(.bottom,20)
                     
-                    
-                    
-                    // STORYEND
-//                    TextField("", text: $endOfStory, prompt: Text("How will the story end?").foregroundStyle(.black.opacity(0.6)))
-//                        .padding()
-//                        .foregroundStyle(Color.black)
-//                        .background(Color.yellow)
-//                        .clipShape(RoundedRectangle(cornerRadius: 10))
-//                        .padding()
-                    // STORYTYPE
-//                    TextField("", text: $storyType, prompt: Text("What type of story should it be ?").foregroundStyle(.black.opacity(0.6)))
-//                        .padding()
-//                        .foregroundStyle(Color.black)
-//                        .background(Color.yellow)
-//                        .clipShape(RoundedRectangle(cornerRadius: 10))
-//                        .padding()
                     // STORYPLACE
                     TextField("", text: $place, prompt: Text("Where should the story take place?").foregroundStyle(.black.opacity(0.6)))
                         .padding()
@@ -213,26 +172,76 @@ struct PromptView: View {
                             .cornerRadius(10)
                             .foregroundStyle(.black)
                             .fullScreenCover(isPresented: $service.showStorySheet, content: {
-                                StoryViewPage()
+                                ZStack {
+                                    Image("wallpaper")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                        .ignoresSafeArea()
+                                    
+                                    VStack {
+                                        ZStack {
+                                            Rectangle()
+                                                .background(.ultraThinMaterial)
+                                                .frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 4)
+                                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                                .padding(.top,40)
+                                            ScrollView {
+                                                Text(service.AIResponse)
+                                                    .font(.title3)
+                                                    .multilineTextAlignment(.center)
+                                                    .foregroundStyle(.white)
+                                                    .padding(.top,45)
+                                            }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 5)
+                                        }
+                                        
+                                        
+                                        HStack {
+                                            Button(action: {
+                                                presentionMode.wrappedValue.dismiss()
+                                            }, label: {
+                                                HStack {
+                                                    Text("New Tale")
+                                                    Image(systemName: "plus.circle")
+                                                }.font(.headline)
+                                                    .frame(maxWidth: .infinity)
+                                                    .frame(height: 55)
+                                                    .background(.ultraThinMaterial)
+                                                    .foregroundStyle(Color.white)
+                                                    .cornerRadius(25)
+                                                    .padding()
+                                            })
+                                            Button(action: {
+                                                vm.addTales(title: "Story", tale: service.AIResponse, date: Date())
+                                                showSavedStory.toggle()
+                                            }, label: {
+                                                HStack {
+                                                    Text("Save")
+                                                    Image(systemName: "square.and.arrow.down.on.square")
+                                                }.font(.headline)
+                                                    .frame(maxWidth: .infinity)
+                                                    .frame(height: 55)
+                                                    .background(.ultraThinMaterial)
+                                                    .foregroundStyle(Color.white)
+                                                    .cornerRadius(25)
+                                                    .padding()
+                                            })
+                                            .fullScreenCover(isPresented: $showSavedStory, content: {
+                                                SavedTalesView()
+                                            })
+                                        }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8)
+                                        
+                                    }
+                                }.ignoresSafeArea()
                             })
                     }  else {
                         ProgressView()
                             .tint(.white)
                     }
                 }.padding(.bottom, 25)
-                
-                
-                
                 Spacer()
-                
-                
-                
             }
-            
-            
         }
-        
-        
     }
     
     private func sendMessage() {
@@ -259,77 +268,30 @@ struct PromptView: View {
     
     
 }
+#Preview {
+    PromptView()
+}
 
-struct StoryViewPage : View {
-    
-    @StateObject var vm = ViewModel()
-    @State private var service = Service()
-    @Environment(\.presentationMode) var presentionMode
-    @State private var showSavedStory : Bool = false
+
+struct textFieldForPrompt: View {
+    @State var text : String
     var body: some View {
-        ZStack {
-            Image("wallpaper")
-                .resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                .ignoresSafeArea()
-            
-            VStack {
-                ZStack {
-                    Rectangle()
-                        .background(.ultraThinMaterial)
-                        .frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 4)
-                        .clipShape(RoundedRectangle(cornerRadius: 25))
-                        .padding(.top,40)
-                    ScrollView {
-                        Text(service.AIResponse)
-                            .font(.title3)
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(.white)
-                    }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 5)
-                 }
-                
-                 
-                    HStack {
-                        Button(action: {
-                            presentionMode.wrappedValue.dismiss()
-                        }, label: {
-                            HStack {
-                                Text("New Tale")
-                                Image(systemName: "plus.circle")
-                            }.font(.headline)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 55)
-                                .background(.ultraThinMaterial)
-                                .foregroundStyle(Color.white)
-                                .cornerRadius(25)
-                                .padding()
-                        })
-                        Button(action: {
-                            vm.addTales(title: "Story", tale: service.AIResponse, date: Date())
-                            showSavedStory.toggle()
-                        }, label: {
-                            HStack {
-                                Text("Save")
-                                Image(systemName: "square.and.arrow.down.on.square")
-                            }.font(.headline)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 55)
-                                .background(.ultraThinMaterial)
-                                .foregroundStyle(Color.white)
-                                .cornerRadius(25)
-                                .padding()
-                        })
-                        .fullScreenCover(isPresented: $showSavedStory, content: {
-                            SavedTalesView()
-                        })
-                    }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8)
-                
-            }
-        }.ignoresSafeArea()
+        TextField("", text: $text, prompt: Text("Language").foregroundStyle(.black.opacity(0.6)))
+            .padding()
+            .foregroundStyle(Color.black)
+            .background(Color.yellow)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding()
     }
 }
 
-#Preview {
-    PromptView()
+struct ChildrenAgeSlider: View {
+    @State var value : Double
+    var body: some View {
+        Text("Child's Age: \(Int(value * 12))")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+            .foregroundColor(.yellow)
+            .fontWeight(.heavy)
+    }
 }
