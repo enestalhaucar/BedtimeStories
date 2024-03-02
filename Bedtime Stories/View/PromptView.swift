@@ -28,6 +28,7 @@ struct PromptView: View {
     
     
     
+    
     var body: some View {
         
         ZStack {
@@ -40,7 +41,7 @@ struct PromptView: View {
                         textFieldForPrompt(text: name)
                         // Language TextField
                         textFieldForPrompt(text: language)
-                    }.padding(.top,50)
+                    }.padding(.top,20)
                     // MARK: CHILDREN AGE SLIDER
                     VStack {
                         ChildrenAgeSlider(value: value)
@@ -50,15 +51,13 @@ struct PromptView: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 2.5)
                                     .frame(width: geometry.size.width, height: 5)
-                                    .foregroundStyle(.yellow)
+                                    .foregroundStyle(.white)
                                 ZStack {
                                     Circle()
                                         .stroke(lineWidth: 4)
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(.yellow)
                                     Circle()
-                                        .foregroundColor(.yellow)
-                                    
-                                    
+                                        .foregroundColor(.white)
                                 }
                                 .offset(x: CGFloat(value) * geometry.size.width - 20)
                                 .gesture(
@@ -78,27 +77,28 @@ struct PromptView: View {
                     // Gender
                     Text("Gender")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(.yellow)
+                        .foregroundStyle(.white)
                         .padding(.leading)
                         .fontWeight(.heavy)
                     Picker(selection: $selectedGender) {
                         ForEach(Gender.allCases) { gender in
-                            Text(gender.rawValue)
+                            Text(gender.rawValue).foregroundStyle(.white)
                                 .tag(gender)
+                                
                         }
                         
                         
                     } label: {
                         
                     }.pickerStyle(SegmentedPickerStyle())
-                        .background(Color.yellow)
+                        .background(.ultraThinMaterial)
                         .padding(.horizontal)
                         .padding(.bottom,20)
                     
                     // EndOfStory
                     Text("How will the story end?")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(.yellow)
+                        .foregroundStyle(.white)
                         .padding(.leading)
                         .fontWeight(.heavy)
                     Picker(selection: $selectedEndOfStory) {
@@ -111,14 +111,14 @@ struct PromptView: View {
                     } label: {
                         
                     }.pickerStyle(SegmentedPickerStyle())
-                        .background(Color.yellow)
+                        .background(.ultraThinMaterial)
                         .padding(.horizontal)
                         .padding(.bottom,20)
                     
                     // Story Type
                     Text("What type of story should it be ?")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(.yellow)
+                        .foregroundStyle(.white)
                         .padding(.leading)
                         .fontWeight(.heavy)
                     Picker(selection: $selectedStoryType) {
@@ -131,25 +131,25 @@ struct PromptView: View {
                     } label: {
                         
                     }.pickerStyle(SegmentedPickerStyle())
-                        .background(Color.yellow)
+                        .background(.ultraThinMaterial)
                         .padding(.horizontal)
                         .padding(.bottom,20)
                     
                     // STORYPLACE
-                    TextField("", text: $place, prompt: Text("Where should the story take place?").foregroundStyle(.black.opacity(0.6)))
+                    TextField("", text: $place, prompt: Text("Where should the story take place?").foregroundStyle(.white))
                         .padding()
-                        .foregroundStyle(Color.black)
-                        .background(Color.yellow)
+                        .foregroundStyle(.white)
+                        .background(.ultraThinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding()
                     //STORYMIN
                     TextField("", text: $XMinuteReading, prompt: Text("How many minutes should the story take to read?")
-                        .foregroundStyle(.black.opacity(0.6))
+                        .foregroundStyle(.white)
                         .font(.system(size: 14.5))
                     )
                     .padding()
-                    .foregroundStyle(Color.black)
-                    .background(Color.yellow)
+                    .foregroundStyle(.white)
+                    .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding()
                 }
@@ -168,9 +168,10 @@ struct PromptView: View {
                             Text("Create a story")
                             Image(systemName: "paperplane")
                         }).padding()
-                            .background(Color.yellow)
+                            .background(.ultraThinMaterial)
                             .cornerRadius(10)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.white)
+                            .fontWeight(.heavy)
                             .fullScreenCover(isPresented: $service.showStorySheet, content: {
                                 ZStack {
                                     Image("wallpaper")
@@ -187,18 +188,24 @@ struct PromptView: View {
                                                 .clipShape(RoundedRectangle(cornerRadius: 25))
                                                 .padding(.top,40)
                                             ScrollView {
-                                                Text(service.AIResponse)
-                                                    .font(.title3)
-                                                    .multilineTextAlignment(.center)
-                                                    .foregroundStyle(.white)
-                                                    .padding(.top,45)
-                                            }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 5)
+                                                VStack {
+                                                    Text(service.AIResponse)
+                                                        .font(.title3)
+                                                        .multilineTextAlignment(.center)
+                                                        .foregroundStyle(.white)
+                                                        
+                                                        
+                                                }
+                                            }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 3.5)
+                                                .padding(.top,65)
+                                                .padding(.bottom,20)
                                         }
                                         
                                         
                                         HStack {
                                             Button(action: {
                                                 presentionMode.wrappedValue.dismiss()
+                                                service.showStorySheet = false
                                             }, label: {
                                                 HStack {
                                                     Text("New Tale")
@@ -212,7 +219,7 @@ struct PromptView: View {
                                                     .padding()
                                             })
                                             Button(action: {
-                                                vm.addTales(title: "Story", tale: service.AIResponse, date: Date())
+                                                vm.addTales(title: service.titleString, tale: service.AIResponse, date: Date())
                                                 showSavedStory.toggle()
                                             }, label: {
                                                 HStack {
@@ -276,10 +283,10 @@ struct PromptView: View {
 struct textFieldForPrompt: View {
     @State var text : String
     var body: some View {
-        TextField("", text: $text, prompt: Text("Language").foregroundStyle(.black.opacity(0.6)))
+        TextField("", text: $text, prompt: Text("Language").foregroundStyle(.white))
             .padding()
-            .foregroundStyle(Color.black)
-            .background(Color.yellow)
+            .foregroundStyle(Color.white)
+            .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding()
     }
@@ -291,7 +298,7 @@ struct ChildrenAgeSlider: View {
         Text("Child's Age: \(Int(value * 12))")
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
-            .foregroundColor(.yellow)
+            .foregroundColor(.white)
             .fontWeight(.heavy)
     }
 }

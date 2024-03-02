@@ -40,7 +40,7 @@ struct FirstPageView: View {
                 }
                 .padding()
             }.ignoresSafeArea(.all)
-        }
+        }.tint(.white)
     }
 }
 

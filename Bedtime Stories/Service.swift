@@ -19,6 +19,7 @@ class Service {
     private var textInput = ""
     var AIResponse = ""
     var showStorySheet : Bool = false
+    var titleString = "Story"
     
    
     
@@ -29,9 +30,6 @@ class Service {
             do{
                  textInput = input
                  let response = try await model.generateContent(textInput)
-                 
-                 
-                 
                  guard let text = response.text else {
                      textInput = "Sorry, try again"
                      return

@@ -21,6 +21,7 @@ struct SavedTalesView: View {
     }
     @State private var service = Service()
     @Environment(\.presentationMode) var presentionMode
+    @State var willTitle = ""
     var body: some View {
         NavigationStack {
             ZStack {
@@ -75,23 +76,42 @@ struct SavedTalesView: View {
                             ZStack {
                                 Rectangle()
                                     .background(.ultraThinMaterial)
-                                    .frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 5)
+                                    .frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 4)
                                     .clipShape(RoundedRectangle(cornerRadius: 25))
                                 
                                 ScrollView {
                                     VStack {
                                         Text(tale.title ?? "")
                                             .font(.title3)
+                                            .fontWeight(.bold)
                                             .multilineTextAlignment(.center)
                                             .foregroundStyle(.white)
-                                            .padding(.top,40)
+                                            .padding(.top,15)
+                                        Spacer()
                                         Text(tale.tale ?? "Story is not be saved")
                                             .font(.title3)
                                             .multilineTextAlignment(.center)
                                             .foregroundStyle(.white)
                                     }
-                                }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 5)
+                                }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 5 , height: UIScreen.main.bounds.height - UIScreen.main.bounds.height / 4)
                             }
+                            
+                            HStack {
+                                TextField("", text: $willTitle, prompt: Text("Change Title").foregroundStyle(.white))
+                                    .padding(.leading)
+                                Button {
+                                    tale.title = willTitle
+                                    willTitle = ""
+                                } label: {
+                                    Image(systemName: "plus.circle")
+                                        .padding(.trailing)
+                                }
+
+                            }.frame(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 8, height: 55)
+                                .background(.ultraThinMaterial)
+                                .foregroundStyle(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                            
                             
                         }
                     }
